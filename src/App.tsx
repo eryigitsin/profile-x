@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react'
-import './App.css'
 
 interface Category {
   name: string
@@ -213,10 +212,7 @@ function App() {
                       const newHandle = ex
                       setHandle(newHandle)
                       setTimeout(() => {
-                        const fakeEvent = { 
-                          preventDefault: () => {} 
-                        } as React.FormEvent
-                        // Use the new value directly
+                        // Simulate analysis with new handle
                         const tempHandle = newHandle
                         setIsLoading(true)
                         setTimeout(() => {
