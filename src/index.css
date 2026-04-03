@@ -1,100 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #1da1f2; /* X.com blue-ish */
+  --accent: #1da1f2;
   --accent-bg: rgba(29, 161, 242, 0.1);
   --accent-border: rgba(29, 161, 242, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 16px/1.5 var(--sans);
-  letter-spacing: -0.01em;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.dark {
-  --text: #9ca3af;
-  --text-h: #f3f4f6;
   --bg: #000000;
+  --bg-card: #16181c;
+  --bg-elevated: #1d1f23;
+  --text: #71767b;
+  --text-h: #e7e9ea;
   --border: #2f3336;
-  --code-bg: #16181c;
-  --accent: #1da1f2;
-  --accent-bg: rgba(29, 161, 242, 0.15);
-  --accent-border: rgba(29, 161, 242, 0.5);
-  --social-bg: rgba(47, 51, 56, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #000000;
-    --border: #2f3336;
-    --code-bg: #16181c;
-    --accent: #1da1f2;
-    --accent-bg: rgba(29, 161, 242, 0.15);
-    --accent-border: rgba(29, 161, 242, 0.5);
-    --social-bg: rgba(47, 51, 56, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-}
-
-
-#root {
-  min-height: 100svh;
+  --green: #00ba7c;
+  --red: #f4212e;
 }
 
 body {
   margin: 0;
-}
-
-/* Base styles for PROFILE-X */
-h1, h2, h3 {
-  font-family: var(--heading);
-  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
   color: var(--text-h);
-  letter-spacing: -0.025em;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 3.5rem;
-  line-height: 1.05;
+#root {
+  min-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
+/* Stars animation for Grok-style landing */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
 }
 
-input:focus {
-  outline: none;
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #555;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
-button {
-  cursor: pointer;
-}
-
-/* Improve Tailwind dark mode support */
-.dark {
-  color-scheme: dark;
-}
+/* Metric change colors */
+.change-up { color: var(--green); }
+.change-down { color: var(--red); }
